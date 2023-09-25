@@ -40,8 +40,8 @@ const sketch = ({ context, canvas, width, height }) => {
   const stats = new Stats();
   document.body.appendChild(stats.dom);
   const gui = new GUI();
-  
-  
+
+
 
   const options = {
     enableSwoopingCamera: false,
@@ -189,26 +189,26 @@ scene.add(frontCardMesh);
       console.error('Error loading font:', err);
       return;
     }
-  
-    // Create geometry of packed bitmap glyphs, 
+
+    // Create geometry of packed bitmap glyphs,
     // word wrapped to 300px and right-aligned
     const geometry = createGeometry({
       width: 300,
       align: 'right',
       font: font
     });
-  
+
     // Update the geometry to reflect a new text string
     geometry.update('Your new text here');
-  
+
     // Create a ThreeJS mesh from the geometry
     // Assign any material to this mesh
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const textMesh = new THREE.Mesh(geometry, material);
-  
+
     // Add the text mesh to your existing scene
     scene.add(textMesh);
-    
+
     // ... continue with your animation/render loop here ...
   });
 
@@ -264,15 +264,15 @@ scene.add(frontCardMesh);
       lightColor2: { value: new THREE.Vector3(0, 0, 1) }  // Blue light
     }
   });
-  
+
   const solidMesh = new THREE.Mesh(
-    new THREE.RoundedBoxGeometry(1.13, 0.807, 0.3, 16, 0.21),
+    new THREE.RoundedBoxGeometry(1.193, 0.807, 0.3, 16, 0.21),
     solidMaterial
   );
-  
+
   solidMesh.position.set(0, -0.807, 0);
   scene.add(solidMesh);
-  
+
 
 
   const light1 = new THREE.PointLight(0xFF00FF, 1, 1000); // Pink light
@@ -282,12 +282,12 @@ scene.add(light1);
 const light2 = new THREE.PointLight(0x0000FF, 1, 1000); // Blue light
 light2.position.set(-50, 50, 50);
 scene.add(light2);
-  
 
 
 
 
-  
+
+
 
   const hdrEquirect = new THREE.RGBELoader().load(
     "src/empty_warehouse_01_2k.hdr",
@@ -315,7 +315,7 @@ scene.add(light2);
     clearcoatNormalScale: new THREE.Vector2(options.clearcoatNormalScale),
     transparent: true,
 
-    
+
   });
 
   const meshes = geometries.map(
@@ -327,7 +327,7 @@ scene.add(light2);
     mesh.position.set(...positions[i]);
   });
 
-  
+
   // Update
   // ------
 
